@@ -1,5 +1,3 @@
-# Ore_Madelyn
-
 # Geographic variation of song in Townsend's Warblers across their breeding range
 
-Townsend's Warbler _Setophaga townsendii_
+In New World Warblers, song is learned and gives a record of cultural evolution within a species. Townsend's Warbler( _Setophaga townsendii_) hybridizes with Hermit Warblers in the Southern end of their range. A past hybridization event as left the trace of Hermit mtDNA in the coastal range of Townsend's Warbler. I am interested to see if there is a link between cultural (song) and genetic evolution. 
