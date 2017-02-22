@@ -6,6 +6,7 @@ library(tidyr)
 library(dplyr)
 library(lubridate)
 library(readr)
+library(tibble)
 
 
 # Macauley Library --------------------------------------------------------
@@ -48,13 +49,18 @@ names(XC_data) <- make.names(names(XC_data))
 bye <- c(1:4,16:19)
 XC_data_colRemoved <- XC_data %>% 
   select(-bye)
-#View(XC_data_colRemoved)
+View(XC_data_colRemoved)
 
 #rearrange columns & change names
-XC_arrange <- XC_data_colRemoved[,c(11,1,2,4,3,5,6,7,8,10,12,13,9)]
-XC_renamed <- rename(XC_arrange, Background.Species = NA., ID = Catalogue.number) # new name = old name
-add_column(XC_renamed, 1, before=1)
-#View(XC_renamed)
+XC_renamed <-XC_data_colRemoved %>% 
+  rename(Background.Species = Background, ID = Catalogue.number)  # new name = old name
+XC_addcol <- XC_renamed %>%
+  mutate(Database.type="XC")
+XC_arrange <- XC_addcol[,c(14,11,1,2,4,3,5,6,7,8,10,12,13,9)]
+
+  # add_column(Database.type= 1:106, .before=1)
+  
+View(XC_arrange)
 
 #Separate columns of date
 XC_date_sep <- XC_renamed %>% 
@@ -69,15 +75,22 @@ XC_time_fix <- XC_date_sep %>%
 View(XC_time_fix)
 
 #separate state from locality
-XC_loc<- XC_time_fix %>% 
-  separate(Location, into=c("Locality","State"), extra = 'merge', fill="left")
-# XC_loc1 <- XC_loc %>% 
-#   separate(State, into=c("County","State"),sep=',',extra="merge", fill='right')
+# XC_loc<- XC_time_fix %>%
+#   separate(Location, into=c("Locality","State"), extra = 'merge', fill="left")
+# # XC_loc1 <- X
+# #   separate(State, into=c("County","State"),sep=',',extra="merge", fill='right'C_loc %>% )
 
-View(XC_loc)
+library(purrr)
+library(stringr)
+XC_time_fix %>% 
+  mutate(split_location = str_split(Location, ","),
+         state_location = map_chr(split_location, ~ .x[length(.x)])) %>% 
+  View
 
-#write XC spreadsheet
-write_csv(XC_time_fix, path= "data/XC_song_recordings.csv")
+# View(XC_loc)
+# 
+# #write XC spreadsheet
+# write_csv(XC_time_fix, path= "data/XC_song_recordings.csv")
 
 
   
