@@ -29,8 +29,8 @@ ML_name <- rename(ML_arrange, Remarks = Public.Note, Songtype = Behavior, Proces
 
 #separate Database type from ID number
 ML_ID_fix <- ML_name %>% 
-  separate(ML.Catalog.., into=c("Database type","ID"), sep=2) #separates the first two letters
-#View(ML_ID_fix)
+  separate(ML.Catalog.., into=c("Database.type" ,"ID"), sep=2) #separates the first two letters
+View(ML_ID_fix)
 
 #edit times
 
@@ -54,7 +54,7 @@ View(XC_data_colRemoved)
 #rearrange columns & change names
 XC_renamed <-XC_data_colRemoved %>% 
   rename(Background.Species = Background, ID = Catalogue.number)  # new name = old name
-XC_addcol <- XC_renamed %>%
+XC_addcol <- XC_renamed %>% 
   mutate(Database.type="XC")
 XC_arrange <- XC_addcol[,c(14,11,1,2,4,3,5,6,7,8,10,12,13,9)]
 
