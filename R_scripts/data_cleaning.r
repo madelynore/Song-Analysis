@@ -7,7 +7,8 @@ library(dplyr)
 library(lubridate)
 library(readr)
 library(tibble)
-
+library(purrr)
+library(stringr)
 
 # Macauley Library --------------------------------------------------------
 
@@ -33,6 +34,15 @@ ML_ID_fix <- ML_name %>%
 View(ML_ID_fix)
 
 #edit times
+ML_time_fix <- ML_ID_fix %>% 
+  for (x in Time) {
+    if (x==0){
+     x <- is.na(x)
+    } else{
+      hm(x)
+    }
+  }
+View(ML_time_fix)
 
 #write ML spreadsheet
 write_csv(ML_ID_fix, path= "data/ML_song_recordings.csv")
@@ -63,7 +73,7 @@ XC_arrange <- XC_addcol[,c(14,11,1,2,4,3,5,6,7,8,10,12,13,9)]
 View(XC_arrange)
 
 #Separate columns of date
-XC_date_sep <- XC_renamed %>% 
+XC_date_sep <- XC_arrange %>% 
   separate(Date, into = c("Year","Month","Day"),sep="-")
 
 #clean up Time 
@@ -80,14 +90,13 @@ View(XC_time_fix)
 # # XC_loc1 <- X
 # #   separate(State, into=c("County","State"),sep=',',extra="merge", fill='right'C_loc %>% )
 
-library(purrr)
-library(stringr)
-XC_time_fix %>% 
-  mutate(split_location = str_split(Location, ","),
-         state_location = map_chr(split_location, ~ .x[length(.x)])) %>% 
-  View
 
-# View(XC_loc)
+XC_loc_fix <- XC_time_fix %>% 
+  mutate(split_location = str_split(Location, ","),
+         State = map_chr(split_location, ~.x[length(.x)]))
+
+
+View(XC_loc_fix)
 # 
 # #write XC spreadsheet
 # write_csv(XC_time_fix, path= "data/XC_song_recordings.csv")
