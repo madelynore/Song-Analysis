@@ -1,0 +1,459 @@
+#---
+#author: Madelyn Ore
+#name: Macauley Library Song Recordings
+#species: Setophaga townsendii
+#description: Song recordings from the online respository xeno-canto.org of Towsend's Warbler (</i>Setophaga townsendii</i>)
+#class: data.frame
+#fields:
+#- name: Database.type
+#  class: factor
+#  description: a two-letter code representing the database where the song recordings came from. XC= xeno-canto.org
+#- name: ID
+#  class: numeric
+#  description: the identification number assigned by xeno-canto.org, identifies each unique bird
+#- name: Year
+#  class: integer
+#  description: The year the recording was collected
+#- name: Month
+#  class: integer
+#  description: The month the recording was collected
+#- name: Day
+#  class: integer
+#  description: The day the recording was collected
+#- name: Time
+#  class: factor
+#  description: The time the recording was collected
+#- name: Country
+#  class: factor
+#  description: The country where the recording was collected
+#- name: State
+#  class: factor
+#  description: The state where the recording was collected
+#- name: Locality
+#  class: factor
+#  description: The general location where the recording was collected, a rough description of where it was recorded given by the recorder
+#- name: Latitude
+#  class: numeric
+#  description: the latitude of the recording
+#- name: Longitude
+#  class: numeric
+#  description: the longitude of the recording
+#- name: Elevation
+#  class: factor
+#  description: the elevation of the site where the bird was recorded, in meters
+#- name: Songtype
+#  class: factor
+#  description: the types of noises (song, call, etc.) made by the focal species in the recording
+#- name: Background.Species
+#  class: factor
+#  description: species singing in the background of the recording
+#- name: Process.comments
+#  class: factor
+#  description: comments that indicate how the recording has been processed. IS= Image Selected, a jpg of the spectrogram of the song taken from Raven Pro. 
+#- name: Songs.In.Recording
+#  class: factor
+#  description: the number of songs sung by the focal bird in the length of the recording
+#- name: Remarks
+#  class: factor
+#  description: general notes by the recorder
+#--- 
+"Database.type","ID","Year","Month","Day","Time","Country","State","Locality","Latitude","Longitude","Elevation","Songtype","Background.Species","Process.comments","Songs.In.Recording","Remarks"
+"1","XC",7465,2006,5,4,"07:30:00","United States"," WA","Seattle, WA",NA,NA,"40.000000","song",NA,NA,NA,"noisy urban park"
+"2","XC",36563,2009,6,25,"15:32:00","United States"," WA","N Cascades Hwy, Whatcom Co., WA",48.7151,-120.9962,"606.000000","Song",NA,"IS","1.000000",NA
+"3","XC",41299,2009,12,13,"10:00:00","United States"," WA","Matlock-Brady Rd, Grays Harbor Co., WA",47.125571,-123.478603,"52.000000","Call","Poecile rufescens,Regulus satrapa",NA,NA,"Recorded in lightly falling snow."
+"4","XC",76413,2011,4,22,"15:50:00","United States"," Washington","English Camp, San Juan Island National Historical Park, San Juan Co., Washington",48.592,-123.151,"10.000000","call, song",NA,"IS","5.000000","natural vocalization"
+"5","XC",107827,2012,7,17,"06:30:00","United States"," WA","Rattlesnake Ridge, WA",47.509,-121.843,"?","song",NA,"messy recording, lower freq","3.000000",NA
+"6","XC",114348,2012,9,3,"07:00:00","Canada"," BC ","Rocky Point Bird Observatory, Vancouver Island, BC ",48.32,-123.546,"10.000000","call","Sitta canadensis,Melospiza melodia,Piranga ludoviciana,Certhia americana,Setophaga aestiva,Cardellina pusilla,Branta canadensis,Junco hyemalis,Loxia curvirostra,Poecile rufescens,Empidonax hammondii,Pipilo maculatus,Larus glaucescens",NA,NA,"Contact calls given in chases between 6 Townsend's Warblers in close proximity; a few jumbled songs as well such as at 0:43 and 0:54.  Background includes YWAR and WIWA flight calls, HAFL calls, BRCR song, etc.
+
+bird-seen:yes
+
+playback-used:no"
+"7","XC",126322,2013,3,6,"10:00:00","Guatemala"," forest above the coffee plantation","Finca Las Nubes, forest above the coffee plantation",14.6805,-91.4856,"1900.000000","call",NA,NA,NA,"Bird foraging in trees next to a coffee plantation.
+
+bird-seen:yes
+
+playback-used:no"
+"8","XC",134887,2013,5,20,"11:30:00","United States"," MT","Lolo Creek Campground, MT",46.7759,-114.3838,"1100.000000","song","Empidonax hammondii,Setophaga auduboni,Tachycineta bicolor","IS","5.000000","Originally singing very high in canopy, playback used to bring down to good recording distance. Singing about 30 feet up in branches of Engelmann Spruce close to riparian vegetation. One short mic noise near the end still in recording.
+
+bird-seen:yes
+
+playback-used:yes"
+"9","XC",137649,2013,4,23,"09:55:00","Canada"," BC","Observatory Hill, Victoria, BC",48.519,-123.4164,"180.000000","song",NA,"IS","3.000000","Mature coniferous forest. Common song around Victoria, reminiscent of hermit warbler. This version not as common up-island. 
+http://ebird.org/ebird/view/checklist?subID=S13859973
+
+bird-seen:yes
+
+playback-used:no"
+"10","XC",139862,2013,5,15,"11:00:00","United States"," Wyoming","Fontenelle, Lincoln, Wyoming",42.0064,-110.083,"2000.000000","male, song",NA,"weird!, IS, lower and longer","5.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"11","XC",150337,2012,12,8,"09:15:00","United States"," California","Greenwood Cemetery, San Diego, California",32.706,-117.1036,"50.000000","call",NA,NA,NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"12","XC",150338,2013,4,11,"09:42:00","United States"," California","Greenwood Cemetery, San Diego, California",32.706,-117.1036,"50.000000","call, song",NA,"not sure this is accurate",NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"13","XC",150351,2013,4,11,"09:46:00","United States"," California","Greenwood Cemetery, San Diego, California",32.706,-117.1036,"50.000000","call, song",NA,NA,NA,"called once, in pine tree, heavily filtered nearby trafic
+
+bird-seen:yes
+
+playback-used:no"
+"14","XC",150354,2013,4,18,"08:48:00","United States"," California","Point Loma Nazarene University, San Diego, California",32.7205,-117.2503,"100.000000","flight call",NA,NA,NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"15","XC",150356,2011,6,3,"06:22:00","United States"," Montana","Libby Creek Road, Libby, Montana",48.2053,-115.4745,"900.000000","song",NA,"IS","9.000000","
+
+bird-seen:no
+
+playback-used:no"
+"16","XC",150357,2011,6,3,"09:14:00","United States"," Montana","Libby Creek Road, Libby, Montana",48.2053,-115.4745,"900.000000","call, song",NA,"IS","13.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"17","XC",150359,2011,6,3,"14:20:00","United States"," Montana","Libby Dam area, Libby, Montana",48.4533,-115.3354,"1000.000000","song",NA,"IS","7.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"18","XC",153708,2012,12,8,"09:17:00","United States"," California","Greenwood Cemetery, San Diego, California",32.706,-117.1036,"50.000000","call",NA,NA,NA,"wintering bird in park-like city cemetery
+
+bird-seen:yes
+
+playback-used:no"
+"19","XC",153709,2011,6,3,"14:08:00","United States"," Montana","Libby Dam area, Libby, Montana",48.4533,-115.3354,"1000.000000","song",NA,"IS","10.000000","
+
+bird-seen:no
+
+playback-used:no"
+"20","XC",154215,2012,6,29,"08:30:00","Canada"," British Columbia","Leighton Lake, British Columbia",50.6263,-120.838,"1200.000000","song","Molothrus ater,Regulus calendula,Turdus migratorius","IS","2.000000",NA
+"21","XC",156181,2011,6,10,"04:30:00","Canada"," British Columbia","Sooke Potholes, Vancouver Island, British Columbia",48.4428,-123.7173,"110.000000","song","Piranga ludoviciana,Leiothlypis celata","IS","3.000000",NA
+"22","XC",156182,2011,6,10,"06:00:00","Canada"," British Columbia","Sooke Potholes, Vancouver Island, British Columbia",48.4428,-123.7173,"110.000000","song","Cardellina pusilla,Empidonax difficilis,Vireo gilvus","IS","2.000000",NA
+"23","XC",156184,2011,6,10,"07:30:00","Canada"," British Columbia","Peden Lake, Sooke Hills, Vancouver Island, British Columbia",48.4524,-123.7013,"300.000000","song","Cardellina pusilla,Turdus migratorius","IS","8.000000",NA
+"24","XC",156194,2011,6,10,"16:30:00","Canada"," British Columbia","Grassy Lake, Sooke Hills, Vancouver Island, British Columbia",48.4477,-123.6797,"400.000000","song","Empidonax difficilis,Contopus cooperi,Sitta canadensis","IS","5.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"25","XC",156213,2011,6,23,"08:30:00","Canada"," British Columbia","Charters River, Sooke, Vancouver Island, British Columbia",48.4183,-123.6901,"130.000000","song","Cardellina pusilla,Catharus ustulatus","IS","2.000000",NA
+"26","XC",156215,2011,6,23,"10:00:00","Canada"," British Columbia","Sheilds Lake, Sooke Hills, Vancouver Island, British Columbia",48.4479,-123.6703,"420.000000","song",NA,"IS","2.000000",NA
+"27","XC",156219,2011,5,6,"07:00:00","Canada"," British Columbia","East Sooke Park, Vancouver Island, British Columbia",48.3183,-123.6484,"100.000000","song",NA,"IS","4.000000",NA
+"28","XC",156220,2011,5,6,"08:00:00","Canada"," British Columbia","East Sooke Park, Vancouver Island, British Columbia",48.3183,-123.6484,"100.000000","song",NA,"IS","5.000000",NA
+"29","XC",156550,2012,5,27,"09:00:00","Canada"," British Columbia","Shuttleworth Creek Rd, Okanagan, British Columbia",49.3577,-119.3495,"1500.000000","song","Spizella passerina,Regulus calendula,Vireo gilvus","IS","3.000000",NA
+"30","XC",156837,2012,5,8,"06:30:00","Canada"," British Columbia","Connie Rd, Metchosin, Vancouver Island, British Columbia",48.3864,-123.6098,"180.000000","song",NA,"IS","2.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"31","XC",157557,2012,4,29,"06:00:00","Canada"," British Columbia","Alder Island, Haida Gwaii, British Columbia",52.4501,-131.3249,"30.000000","song","Corvus caurinus,Catharus guttatus","IS","7.000000","No modifications of recording made with SM2.
+
+bird-seen:no
+
+playback-used:no"
+"32","XC",157559,2012,4,29,"07:00:00","Canada"," British Columbia","Alder Island, Haida Gwaii, British Columbia",52.4501,-131.3249,"30.000000","song","Haliaeetus leucocephalus,Sphyrapicus ruber",NA,NA,"No modifications of recording made with SM2.
+
+bird-seen:no
+
+playback-used:no"
+"33","XC",157603,2013,6,30,"06:30:00","Canada"," British Columbia","Ramsay Island, Haida Gwaii, British Columbia",52.5632,-131.4329,"20.000000","song","Corvus corax,Ixoreus naevius,Empidonax difficilis,Haliaeetus leucocephalus","IS","9.000000","SM2, unmodified
+
+bird-seen:no
+
+playback-used:no"
+"34","XC",157610,2013,5,6,"07:00:00","Canada"," British Columbia","Arichika Island, Haida Gwaii, British Columbia",52.4715,-131.3424,"30.000000","song","Ixoreus naevius,Leiothlypis celata,Sitta canadensis,Dendragapus fuliginosus,Haematopus bachmani","IS","5.000000","SM2, not modified. Two individuals, one loud, one soft"
+"35","XC",157613,2011,5,10,"06:30:00","Canada"," British Columbia","Christmas Hill, Victoria, Vancouver Island, British Columbia",48.4739,-123.3773,"60.000000","call, song",NA,"IS","7.000000","Song with introductory contact calls, from a bird on migration.
+
+bird-seen:yes
+
+playback-used:no"
+"36","XC",157691,2011,6,22,"15:00:00","Canada"," British Columbia","Chemainus River, Vancouver Island, British Columbia",48.8413,-123.8239,"190.000000","begging call, juvenile",NA,NA,NA,"Poor recording of fledgling calls from several juveniles, begging from adults in canopy of Douglas-firs."
+"37","XC",159408,2012,9,1,"07:07:00","Canada"," BC","Rocky Point Bird Observatory, Metchosin, Vancouver Island, BC",48.319734,-123.546288,NA,"contact calls",NA,NA,NA,"
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"38","XC",159589,2012,9,20,"07:21:00","Canada"," BC","Rocky Point Bird Observatory, Metchosin, Vancouver Island, BC",48.319734,-123.546288,NA,"contact calls",NA,NA,NA,"
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"39","XC",159593,2012,9,20,"07:37:00","Canada"," BC","Rocky Point Bird Observatory, Metchosin, Vancouver Island, BC",48.319734,-123.546288,NA,"contact calls",NA,NA,NA,"
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"40","XC",159738,2012,10,10,"07:43:00","Canada"," BC","Pedder Bay, Metchosin, Vancouver Island, BC",48.350716,-123.578174,NA,"contact calls",NA,NA,NA,"
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"41","XC",159743,2012,10,10,"07:48:00","Canada"," BC","Pedder Bay, Metchosin, Vancouver Island, BC",48.350716,-123.578174,NA,"contact calls",NA,NA,NA,"female-type with yellow throat
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"42","XC",160177,2013,4,20,"10:24:00","Canada"," BC","East Sooke Park, Babbington Hill, East Sooke, Vancouver Island, BC",48.331718,-123.658382,NA,"song",NA,"IS","4.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"43","XC",160207,2013,4,25,"09:46:00","Canada"," BC","Camas Hill, Metchosin, Vancouver Island, BC",48.395338,-123.599262,NA,"song",NA,"IS","2.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"44","XC",160215,2013,4,25,"12:16:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","3.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"45","XC",160216,2013,4,25,"12:18:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","2.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"46","XC",160219,2013,4,25,"12:26:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","2.000000","buzzes only
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"47","XC",160220,2013,4,25,"12:27:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","2.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"48","XC",160221,2013,4,25,"12:32:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","1.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"49","XC",160225,2013,4,25,"13:02:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","27.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"50","XC",160229,2013,4,25,"13:06:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","5.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"51","XC",160232,2013,4,25,"13:20:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","3.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"52","XC",160233,2013,4,25,"13:23:00","Canada"," BC","Broom Hill, Sooke, Vancouver Island, BC",48.387323,-123.7555,NA,"song",NA,"IS","3.000000","
+
+Recorded on a Marantz PMD661 recorder using a Sennheiser ME66 microphone.
+
+playback-used:no"
+"53","XC",160830,2012,6,13,"11:53:00","Canada"," BC","Telus tower trail, Calvert Island, BC",51.649901,-128.102867,NA,"song",NA,"IS","2.000000","
+
+playback-used:no"
+"54","XC",160831,2012,6,13,"10:00:00","Canada"," BC","Telus tower trail, Calvert Island, BC",51.649901,-128.102867,NA,"song",NA,"IS","2.000000","
+
+playback-used:no"
+"55","XC",160838,2012,6,15,"09:00:00","Canada"," BC","Hakai, Calvert Island, BC",51.65488,-128.133129,NA,"song",NA,"IS","2.000000","
+
+playback-used:no"
+"56","XC",160850,2012,6,26,"08:00:00","Canada"," BC","Tunkwa Lake, BC",50.604214,-120.850739,NA,"song",NA,"IS","1.000000","
+
+playback-used:no"
+"57","XC",169789,2014,3,8,"10:00:00","United States"," California","Glendora Ridge Road, San Gabriel Mountains, Los Angeles County, California",34.218,-117.698,"1300.000000","call","Poecile gambeli,Junco hyemalis",NA,NA,"Natural vocalizations on a north-facing slope in an area with California bay, bigcone Douglas fir, live oak, and white alder.  
+
+Equipment: Marantz PMD670 equipped with a Telinga 22 inch paraboloid and a Sennheiser ME62 microphone.
+
+Modifications to the file: None
+
+bird-seen:yes
+
+playback-used:no"
+"58","XC",173817,2014,4,11,"10:30:00","Mexico","Mex DF entrance Desierto de los Leones","Mex DF entrance Desierto de los Leones",19.32,-99.304,"2900.000000","song",NA,NA,NA,"
+
+bird-seen:no
+
+playback-used:no"
+"59","XC",179100,2014,5,1,"16:00:00","Canada"," British Columbia","Pacific Rim National Park Reserve (near  Ucluelet), Alberni-Clayoquot, British Columbia",49.0573,-125.7246,"20.000000","song",NA,"IS","4.000000","A typical song type of breeding birds in the Tofino/Ucluelet area - very different from most song types of breeders on southern Vancouver Island."
+"60","XC",182169,2014,5,4,"08:30:00","Canada"," British Columbia","Sharp Rd, Tofino, British Columbia",49.1252,-125.8846,"10.000000","contact call",NA,NA,NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"61","XC",182395,2014,5,2,"13:30:00","Canada"," British Columbia","Pacific Rim National Park, Lovekin Rock Parking Lot, British Columbia",49.0714,-125.7569,"10.000000","song",NA,"IS","1.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"62","XC",182398,2014,5,2,"13:30:00","Canada"," British Columbia","Pacific Rim National Park, Lovekin Rock Parking Lot, British Columbia",49.0714,-125.7569,"10.000000","song",NA,"IS","1.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"63","XC",182404,2014,5,1,"11:30:00","Canada"," British Columbia","Tofino botanical garden, British Columbia",49.1211,-125.8882,"10.000000","song",NA,"IS","4.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"64","XC",182421,2014,6,6,"08:00:00","Canada"," BC","West beach, Calvert Island, BC",51.6547,-128.1391,"0.000000","song",NA,"IS","7.000000",NA
+"65","XC",182424,2014,6,5,"08:00:00","Canada"," BC","West beach, Calvert Island, BC",51.6547,-128.1391,"0.000000","male, song",NA,"IS","4.000000","very common song type in this area."
+"66","XC",182425,2014,5,8,"07:00:00","Canada"," British Columbia","Mt MacDonald bumps, Sooke Hills, British Columbia",48.4377,-123.5865,"360.000000","song",NA,"IS","4?","3 individuals."
+"67","XC",187462,2014,6,10,"05:21:00","Canada"," Alberta","Banff National Park, Division No. 15, Alberta",51.2418,-115.84,"1400.000000","song","Setophaga auduboni","IS","7.000000","Johnston Canyon; ID presumed; from canopy of tall conifers; species present in the area; Individual No 1 recorded today
+
+bird-seen:no
+
+playback-used:no"
+"68","XC",187464,2014,6,10,"05:35:00","Canada"," Alberta","Banff National Park, Division No. 15, Alberta",51.2418,-115.84,"1400.000000","song","Regulus calendula","IS","11.000000","Johnston Canyon; ID presumed; from canopy of tall conifers; species present in the area; Individual No 2 recorded today, 1st recording of it
+
+bird-seen:no
+
+playback-used:no"
+"69","XC",187466,2014,6,10,"05:31:00","Canada"," Alberta","Banff National Park, Division No. 15, Alberta",51.2418,-115.84,"1400.000000","song","Regulus calendula","IS","5.000000","Johnston Canyon; ID presumed; from canopy of tall conifers; species present in the area; Individual No 2 recorded today, 2nd recording of it
+
+bird-seen:no
+
+playback-used:no"
+"70","XC",187467,2014,6,10,"05:38:00","Canada"," Alberta","Banff National Park, Division No. 15, Alberta",51.2418,-115.84,"1400.000000","song","Catharus ustulatus","IS","12.000000","Johnston Canyon; ID presumed; from canopy of tall conifers; species present in the area; Individual No 3 recorded today
+
+bird-seen:no
+
+playback-used:no"
+"71","XC",193985,2014,6,23,"15:27:00","United States"," Alaska","Fish Creek, near Hyder, Alaska",55.9646,-130.0618,"40.000000","song","Loxia curvirostra,Spinus pinus,Leiothlypis celata,Cardellina pusilla,Ixoreus naevius","IS","5.000000","Individual No 3 recorded here
+
+bird-seen:no
+
+playback-used:no"
+"72","XC",208940,2014,12,19,"09:15:00","Mexico"," Sonora","East Side Mesa El Campanero,Yecora, Sonora",28.3537,-109.0015,"1800.000000","call",NA,NA,NA,"Part of longer clip (XC208941), clip also amplified. Recorded on edge of a small barranca in oak-pine woodland with some cypresses.
+
+bird-seen:no
+
+playback-used:no"
+"73","XC",210112,2014,8,7,"13:00:00","Canada"," British Columbia","E. C. Manning Provincial Park (near  Manning Park), Okanagan-Similkameen, British Columbia",49.108,-120.7598,"2000.000000","begging call, juvenile",NA,NA,NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"74","XC",212660,2015,1,30,"10:00:00","Mexico"," Oaxaca","Yuvila Rd, La Cumbre, Oaxaca",17.1634,-96.597,"2800.000000","call","Basilinna leucotis,Cyanocitta stelleri,Setophaga auduboni",NA,NA,"Natural vocalizations from a female foraging in a small tree about 4m up along road amid semi-humid pine-oak forest. img:https://www.flickr.com/photos/8013969@N03/15821378444/
+
+bird-seen:yes
+
+playback-used:no"
+"75","XC",233012,2015,3,15,"08:00:00","Guatemala"," Mixco","Hotel Cabana Suiza, Mixco",14.6172,-90.6182,"1800.000000","call","Quiscalus mexicanus,Setophaga graciae",NA,NA,"The bird was chipping from the crown of small ornamental tree while feeding actively, about 2 m above ground.
+
+bird-seen:yes
+
+playback-used:no"
+"76","XC",255648,2015,7,4,"16:00:00","Canada"," Alberta","Alderson Lake, Waterton Lakes National Park, Alberta",49.0305,-113.9722,"1900.000000","song",NA,"IS","2.000000",NA
+"77","XC",255649,2015,7,4,"16:00:00","Canada"," Alberta","Alderson Lake, Waterton Lakes National Park, Alberta",49.0305,-113.9722,"1900.000000","song",NA,"IS","2.000000",NA
+"78","XC",255816,2015,6,24,"11:00:00","Canada"," Alberta","Summit Lake, Waterton Lakes National Park, Alberta",49.0087,-114.0281,"2000.000000","song",NA,"IS","1.000000","
+
+bird-seen:no
+
+playback-used:no"
+"79","XC",255829,2015,6,27,"11:00:00","Canada"," Alberta","Bertha Creek, Waterton Lakes NP, Alberta",49.0333,-113.9297,"1600.000000","song",NA,"IS","2.000000","
+
+bird-seen:no
+
+playback-used:no"
+"80","XC",255830,2015,7,4,"17:00:00","Canada"," Alberta","Alderson trail, Waterton Lakes NP, Alberta",49.0516,-113.954,"1600.000000","song",NA,"IS","2.000000","
+
+bird-seen:no
+
+playback-used:no"
+"81","XC",255832,2015,7,4,"17:00:00","Canada"," Alberta","Alderson trail, Waterton Lakes NP, Alberta",49.0516,-113.954,"1600.000000","song",NA,"IS","1.000000","
+
+bird-seen:no
+
+playback-used:no"
+"82","XC",256447,2015,6,27,"12:00:00","Canada"," Alberta","Bertha Creek, Waterton Lakes NP, Alberta",49.0333,-113.9297,"1600.000000","song",NA,"IS","2.000000",NA
+"83","XC",265559,2015,4,2,"07:00:00","Mexico"," Chiapas","Tzontehuitz, Chiapas",16.8307,-92.5821,"2700.000000","call, flight call","Zonotrichia capensis",NA,NA,"natural vocalization; flight calls and contact calls from a male bird foraging near the top of a bush on a scrubby, humid slope surrounded by cloudforest.
+
+bird-seen:yes
+
+playback-used:no"
+"84","XC",269030,2015,6,17,"10:36:00","United States"," Washington","Keenes Horse Camp/ Muddy Meadows Area, Skamania County, Washington",46.3086,-121.5431,"1300.000000","male, song",NA,"IS","2.000000","There were many hybrid Townsend's x Hermit Warblers in this area, but this individual looked like a pure Townsend's. 
+
+bird-seen:yes
+
+playback-used:no"
+"85","XC",269031,2015,6,17,"10:36:00","United States"," Washington","Keenes Horse Camp/ Muddy Meadows Area, Skamania County, Washington",46.3086,-121.5431,"1300.000000","male, song",NA,"IS","6.000000","There were many hybrid Townsend's x Hermit Warblers in this area, this individual looked more like Townsend's. The loudest song phrases on the track are this bird. 
+
+bird-seen:yes
+
+playback-used:no"
+"86","XC",269234,2015,6,17,"17:30:00","United States"," Washington","Keenes Horse Camp/ Muddy Meadows Area, Skamania County, Washington",46.3086,-121.5431,"1300.000000","song",NA,"IS","4.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"87","XC",271584,2015,3,2,"12:00:00","Panama","Sendero los Quetzales (Cerro Punta side)","Sendero los Quetzales (Cerro Punta side)",8.848868,-82.541793,NA,"call",NA,NA,NA,NA
+"88","XC",287290,2015,10,25,"09:30:00","Honduras"," near Tegucigalpa","El Tizatillo, near Tegucigalpa",13.9641,-87.1881,"1300.000000","call","Myiarchus tuberculifer",NA,NA,"
+
+bird-seen:yes
+
+playback-used:no"
+"89","XC",288182,2015,9,9,"10:00:00","United States"," Arizona","Hidden Tank, Sitgreaves National Forest, Navajo County, Arizona",34.3199,-110.6945,"2200.000000","call, male",NA,NA,NA,"Amplification, low and high pass filters used in Audacity.
+
+bird-seen:yes
+
+playback-used:no"
+"90","XC",296039,2015,4,8,"10:24:00","United States"," California","Kitchen Creek Rd, south section, Cleveland National Forest, San Diego County, California",32.7765,-116.4505,"1300.000000","call, song","Leiothlypis celata,Regulus calendula,Catherpes mexicanus,Troglodytes aedon,Pipilo maculatus,Sialia mexicana,Setophaga auduboni,Haemorhous mexicanus,Spizella atrogularis,Myiarchus cinerascens,Cardellina pusilla,Icterus bullockii","IS","5.000000","called a few times, including at 1:10.3
+
+bird-seen:yes
+
+playback-used:no"
+"91","XC",296040,2015,4,8,"10:15:00","United States"," California","Kitchen Creek Rd, south section, Cleveland National Forest, San Diego County, California",32.7765,-116.4505,"1300.000000","call","Troglodytes aedon,Pipilo maculatus",NA,NA,"called three times
+
+bird-seen:yes
+
+playback-used:no"
+"92","XC",297528,2015,3,24,"08:00:00","United States"," Arizona","Huachuca Canyon, Ft Huachuca, Arizona",31.5193,-110.3871,"1700.000000","song",NA,"IS","1.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"93","XC",302557,2012,5,9,"11:30:00","Canada"," British Columbia","John Dean PP, North Saanich, British Columbia",48.6115,-123.4432,"300.000000","song",NA,"IS","5.000000","
+
+bird-seen:yes
+
+playback-used:no"
+"94","XC",303876,2016,2,13,"10:30:00","United States"," Arizona","Ramsey Canyon Preserve, Cochise County, Arizona",31.4463,-110.3101,"1700.000000","call",NA,NA,NA,"Amplified
+
+bird-seen:yes
+
+playback-used:no"
+"95","XC",322898,2016,6,3,"10:30:00","United States"," Alaska","Crow Creek road, Anchorage, Alaska",60.976,-149.1211,"90.000000","song","Regulus calendula","IS","4.000000",NA
+"96","XC",322899,2016,6,3,"10:30:00","United States"," Alaska","Crow Creek road, Anchorage, Alaska",60.976,-149.1211,"90.000000","song",NA,"IS","7.000000",NA
+"97","XC",322900,2016,6,3,"10:30:00","United States"," Alaska","Crow Creek road, Anchorage, Alaska",60.976,-149.1211,"90.000000","song",NA,"IS","8.000000",NA
+"98","XC",322903,2016,6,3,"10:30:00","United States"," Alaska","Crow Creek road, Anchorage, Alaska",60.976,-149.1211,"90.000000","song",NA,"IS","5.000000",NA
+"99","XC",322907,2016,6,3,"11:00:00","United States"," Alaska","Crow Creek road, Anchorage, Alaska",60.976,-149.1211,"90.000000","song",NA,"IS","4.000000",NA
+"100","XC",322939,2016,6,4,"17:30:00","United States"," Alaska","Exit Glacier road, Seward, Kenai Peninsula Borough, Alaska",60.177,-149.5314,"70.000000","song","Regulus calendula","IS","4.000000",NA
+"101","XC",323056,2016,6,9,"15:00:00","United States"," Alaska","Chena River, North Pole, Fairbanks North Star, Alaska",64.7945,-147.1961,"150.000000","song",NA,"IS","4.000000","ID certainty 80%."
+"102","XC",323058,2016,6,9,"15:30:00","United States"," Alaska","Chena River, North Pole, Fairbanks North Star, Alaska",64.7945,-147.1961,"150.000000","song",NA,"IS","5.000000",NA
+"103","XC",323646,2015,5,10,"08:18:00","United States"," Arizona","San Bernardino National Wildlife Refuge, Cochise County, Arizona",31.34,-109.273,"1100.000000","call, song","Vireo bellii,Melanerpes uropygialis,Zenaida asiatica,Setophaga aestiva","IS","3.000000","singing while foraging in mesquites; at least one call, at 0:43; migrant at this location (and in this state)
+
+bird-seen:yes
+
+playback-used:no"
+"104","XC",323648,2015,5,2,"07:50:00","United States"," Arizona","Silver Creek, Cave Creek Canyon, Cochise County, Arizona",31.932,-109.191,"1500.000000","call, song","Myiarchus cinerascens,Picoides scalaris,Vireo gilvus,Zenaida asiatica,Myiarchus tyrannulus,Cardinalis cardinalis,Thryomanes bewickii",NA,NA,"migrant singing while foraging in an oak tree
+
+bird-seen:yes
+
+playback-used:no"
+"105","XC",333511,2016,9,3,"08:09:00","United States"," Wyoming","Cheyenne, Laramie County, Wyoming",41.1276,-104.699,"1800.000000","call, song",NA,NA,NA,"This is not a typical song. I take this to be one of the \"sub songs\" or \"whisper songs\" given on fall migration, perhaps by young males.
+
+bird-seen:yes
+
+playback-used:no"
+"106","XC",335339,2015,3,24,"08:40:00","Mexico"," Chiapas","Campamento El Triunfo, Chiapas",15.6569,-92.8091,"2000.000000","song","Geotrygon albifacies",NA,NA,"canopy of primary forest; one song from a wintering bird
+
+bird-seen:yes
+
+playback-used:no"
