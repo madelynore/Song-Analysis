@@ -29,7 +29,9 @@ ML_data %>%
   assert(within_bounds(0,100), Songs.In.Recording) %>% 
     
   #checks that the location of the recordings makes sense
-  assert(in_set(states),  State)
+  assert(in_set(states),  State) %>% 
+    
+  verify(is.numeric(Longitude))
 
 # Xeno Canto assertions ---------------------------------------------------
 #nickname of database

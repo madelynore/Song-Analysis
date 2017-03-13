@@ -2,12 +2,7 @@
 ##14 Feb 2017
 
 library(readxl)
-library(tidyr)
-library(dplyr)
-library(lubridate)
-library(readr)
-library(tibble)
-library(purrr)
+library(tidyverse)
 library(stringr)
 
 # Macauley Library --------------------------------------------------------
@@ -31,7 +26,7 @@ ML_name <- rename(ML_arrange, Remarks = Public.Note, Songtype = Behavior, Proces
 #separate Database type from ID number
 ML_ID_fix <- ML_name %>% 
   separate(ML.Catalog.., into=c("Database.type" ,"ID"), sep=2) #separates the first two letters
-#View(ML_ID_fix)
+View(ML_ID_fix)
 
 
 # #edit times
@@ -70,13 +65,24 @@ XC_time_fix <- XC_date_sep %>%
 #View(XC_time_fix)
 
 #separate state from locality
-XC_loc_fix <- XC_time_fix %>% 
+XC_locfix <- XC_time_fix %>% 
   mutate(split_location = str_split(Location, ","),
-         State = map_chr(split_location, ~.x[length(.x)])) %>% 
-  # separate(Location, into=c("Locality","strip"), extra = 'merge', fill="right")
-# # XC_loc1 <- X
-# #   separate(State, into=c("County","State"),sep=',',extra="merge", fill='right'C_loc %>% )
+         State = map_chr(split_location, ~.x[length(.x)]),
+         Locality = map_chr(split_location, ~.))
+XC_locfix2 <- XC_locfix %>% 
+  separate(Locality, into=c("Locality","strip"), sep=",")
+# XC_loc1 <- X
+#   separate(State, into=c("County","State"),sep=',',extra="merge", fill='right'C_loc %>% )
+View(XC_locfix)
 
+#Separate playback stimulus
+#make string of interest an object
+no_playback <- "playback-used:no"
+yes_playback <- "playback-used:yes"
+  
+XC_playback <- XC_loc_fix %>% 
+  mutate(Stimulus = str_extract(no_playback))
+  #this shit doesn't work
 
 #remove unnecessary columns 
 bye <- c(1:4,18:21,24)
