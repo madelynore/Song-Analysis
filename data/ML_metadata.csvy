@@ -1,105 +1,70 @@
 #---
-#class:
-#- tbl_df
-#- tbl
-#- data.frame
+#author: Madelyn Ore
+#name: Macauley Library Song Recordings
+#species: Setophaga townsendi
+#description: Song recordings from the online respository Macauley Library of Towsend's Warbler (</i>Setophaga townsendi</i>)
+#class: data.frame
 #fields:
-#- name: ML.Catalog..
-#  class: character
-#- name: Format
-#  class: character
-#- name: Scientific.Name
-#  class: character
-#- name: Common.Name
-#  class: character
-#- name: Background.Species
-#  class: character
-#- name: Subtitle
-#  class: numeric
-#- name: Recordist
-#  class: character
+#- name: Database.type
+#  class: factor
+#  description: a two-letter code representing the database where the song recordings came from. ML= Macauley Library
+#- name: ID
+#  class: integer
+#  description: the identification number assigned by the Macauley Library, identifies each unique bird
 #- name: Year
 #  class: numeric
+#  description: The year the recording was collected
 #- name: Month
 #  class: numeric
+#  description: The month the recording was collected
 #- name: Day
 #  class: numeric
+#  description: The day the recording was collected
 #- name: Time
 #  class: numeric
+#  description: The time the recording was collected
 #- name: Country
-#  class: character
-#- name: State
-#  class: character
+#  class: factor
+#  description: The country where the recording was collected
 #- name: County
-#  class: character
+#  class: factor
+#  description: The county where the recording was collected
+#- name: State
+#  class: factor
+#  description: The state where the recording was collected
 #- name: Locality
-#  class: character
+#  class: factor
+#  description: The general location where the recording was collected, a rough description of where it was recorded given by the recorder
 #- name: Latitude
 #  class: numeric
+#  description: the latitude of the recording
 #- name: Longitude
 #  class: numeric
+#  description: the longitude of the recording
 #- name: Elevation..m.
 #  class: numeric
-#- name: AgeSex
-#  class: character
-#- name: Behavior
-#  class: character
+#  description: the elevation of the site where the bird was recorded, in meters
+#- name: Songtype
+#  class: factor
+#  description: the types of noises (song, call, etc.) made by the focal species in the recording
 #- name: Stimulus
-#  class: character
-#- name: Confidence.In.ID
-#  class: character
-#- name: How.Identified
-#  class: character
-#- name: Captive
-#  class: numeric
-#- name: Specimen
-#  class: numeric
-#- name: Quality
-#  class: numeric
-#- name: Audio.Quality.For.Video
-#  class: numeric
-#- name: Cut.Length..s.
-#  class: numeric
-#- name: Recorder
-#  class: character
-#- name: Microphone
-#  class: character
-#- name: Accessory
-#  class: character
-#- name: Channels
-#  class: character
-#- name: eBird.Checklist.ID
-#  class: character
-#- name: Air.Temp..C.
-#  class: numeric
-#- name: Water.Temp..C.
-#  class: numeric
+#  class: factor
+#  description: how the recorder illicited the bird song. Natural = bird sang naturally. Playback Self= bird sang and recorder played back it's own song to induce the bird to sing. Playback Same Species = recorder played another individual of the same species to induce the bird to sing.
 #- name: Habitat
-#  class: character
-#- name: Regional.Habitat
+#  class: factor
+#  description: the habitat types that the recording occured in
+#- name: Background.Species
+#  class: factor
+#  description: species singing in the background of the recording
+#- name: Processed.comments
+#  class: factor
+#  description: a code that indicate how the recording has been processed. IS= Image Selected, a jpg of the spectrogram of the song taken from Raven Pro. 
+#- name: Songs.In.Recording
 #  class: numeric
-#- name: Physical.Feature
-#  class: numeric
-#- name: Public.Note
-#  class: character
-#- name: Subject.Note
-#  class: character
-#- name: Equipment.Note
-#  class: character
-#- name: Class
-#  class: character
-#- name: Order
-#  class: character
-#- name: Family
-#  class: character
-#- name: Taxonomic.Sort
-#  class: numeric
-#- name: Processed.
-#  class: character
-#- name: Process.comments
-#  class: numeric
-#- name: X..of.songs.in.recording
-#  class: numeric
+#  description: the number of songs sung by the focal bird in the length of the recording
+#- name: Remarks
+#  class: factor
+#  description: general notes by the recorder
 #--- 
 "ML.Catalog..","Format","Scientific.Name","Common.Name","Background.Species","Subtitle","Recordist","Year","Month","Day","Time","Country","State","County","Locality","Latitude","Longitude","Elevation..m.","AgeSex","Behavior","Stimulus","Confidence.In.ID","How.Identified","Captive","Specimen","Quality","Audio.Quality.For.Video","Cut.Length..s.","Recorder","Microphone","Accessory","Channels","eBird.Checklist.ID","Air.Temp..C.","Water.Temp..C.","Habitat","Regional.Habitat","Physical.Feature","Public.Note","Subject.Note","Equipment.Note","Class","Order","Family","Taxonomic.Sort","Processed.","Process.comments","X..of.songs.in.recording"
 "1","ML10027","Audio","Setophaga townsendi","Townsend's Warbler",NA,NA,"Stein, Robert C; Michener, Martin C",1958,6,19,1035,"United States","Oregon",NA,"Langdon Lake; Blue Mountains",NA,NA,NA,NA,"song",NA,"Not Provided",NA,NA,NA,4,0,134,"MAGNEMITE UNSPECIFIED MODEL",NA,"Parabola 101.6cm (40in)","Mono",NA,NA,NA,"Forest; Coniferous Forest",NA,NA," NOTES: [Two song-types are represented here.  Both songs are closest to Figures 19C or 19D of D. J. Borror and W. W. H. Gunn (1985. Songs of the Warblers of North America.  Cornell Lab. of Ornithology)), but one begins with clear whistles and the other with a buzzy trill.  Most songs here are of the first type (0:05, 0:18, 0:33, 0:46, 0:50, 1:00, 1:12, and 1:35), but the last three are either incomplete (1:49, 2:15) or of the second type (2:01).  Songs of the first type are much like those in LNS #47707 from SE Washington.  There appears to be a start-stop at 1:39, with the song that begins here apparently decapitated.  Quality unchanged (2-1, but many of these songs appear to be overloaded) - CAM - 20 January 2005]",NA,NA,"Aves","Passeriformes","Parulidae",133410,"IS",NA,9
