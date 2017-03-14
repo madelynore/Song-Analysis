@@ -4,6 +4,7 @@
 library(readxl)
 library(tidyverse)
 library(stringr)
+library(chron)
 
 # Macauley Library --------------------------------------------------------
 ML_data <- read_excel("data_raw/ML_SongRecordings.xlsx", sheet=1, col_names=TRUE)
@@ -30,18 +31,20 @@ View(ML_ID_fix)
 
 
 # #edit times
-# ML_time_fix <- ML_ID_fix$Time %>% 
-#   for (x in Time) {
-#     if (x==0){
-#      x <- is.na(x)
-#     } else{
-#       hm(x)
-#     }
-#   }
-# View(ML_time_fix)
+
+#changes zeros to NA
+ML_ID_fix$Time[ML_ID_fix$Time == 0] <-NA
+
+#pads times >10 with zeros
+ML_ID_fix$Time <- sprintf("%04d", ML_ID_fix$Time)
+
+#inserts colon
+ML_ID_fix$Time <- sub("([[:digit:]]{2,2})$", ':\\1', ML_ID_fix$Time)
+
+
 
 #write ML spreadsheet
-write_csv(ML_ID_fix, path= "data/ML_song_recordings.csv")
+write.csv(ML_ID_fix, file = "data/ML_song_recordings.csv")
 
 # Xeno Canto --------------------------------------------------------------
 
