@@ -1,6 +1,10 @@
 ##Madelyn Ore
 ##14 Feb 2017
 
+require(readxl)
+require(stringr)
+require(tidyverse)
+
 library(readxl)
 library(tidyverse)
 library(stringr)
@@ -147,7 +151,7 @@ write_csv(XC_arrange, path= "data/XC_song_recordings.csv")
 ### Google sheet####
 
 #loads data from google doc sheet
-GS_data <- read.csv("data_raw/Song Data - Form Responses 1.csv", header = TRUE )
+GS_data <- read.csv("data_raw/Song Data - Form Responses 1.csv", strip.white = TRUE, stringsAsFactors = FALSE, na.strings = c("NA","",'na') )
 
 #adds columns for species name and stimulus type and populates the values in the column
 GS_add <- GS_data %>% 
@@ -159,8 +163,8 @@ GS_remove_timestamp <- GS_add %>%
   select(-Timestamp) 
 
 #rearrange columns to match exel
-GS_col_arrange <- GS_remove_timestamp[,c("Species","Song.ID","Date","Time","Locality",
-                                         "GPS.coordinate.North","GPS.coordinate.West",
+GS_col_arrange <- GS_remove_timestamp[,c("Species","Song.ID","Date","Time","Locality","GPS.coordinate.North",
+                                         "GPS.coordinate.West",
                                          "Elevation..m.","Habitat.Type","X..Canopy.Cover",
                                          "Dominant.Species","Tree.Size.Class","Understory",
                                          "Estimated.distance.from.record..m.",
@@ -172,40 +176,51 @@ GS_col_arrange <- GS_remove_timestamp[,c("Species","Song.ID","Date","Time","Loca
 GS_rename <- GS_col_arrange %>% 
   rename(Est.dist.from.recorder = Estimated.distance.from.record..m.,
          GPS.coordinate.N = GPS.coordinate.North , GPS.coordinate.W = GPS.coordinate.West, 
-         Understory.code = Understory, Recorder.Initials = Initials.of.Recorder)
+         Understory.code = Understory, Recorder.Initials = Initials.of.Recorder, 
+         Date..MDY. = Date)
 
-# #Removes * character from the GPS coordinates and replaces with a space
-# GS_add$GPS.coordinate.North <- chartr('*',' ', GS_data$GPS.coordinate.North)
-# GS_add$GPS.coordinate.West <- chartr('*',' ', GS_data$GPS.coordinate.West)
 
-GS_col_names <- names(GS_rename)
-sapply(GS_col_names, typeof)
+#changes the data type to match the Summer 2017 dataset 
+GS_rename$Understory.code <- as.factor(GS_rename$Understory.code)
+GS_rename$Stimulus <- as.factor(GS_rename$Stimulus)
 
 View(GS_rename)
 
 
 # Excel summer 2017 -------------------------------------------------------
 
-Summer_2017_data <- read.csv("data_raw/Song data.csv",header =  TRUE)
-View(Summer_2017_data)
-
-
+Summer_TOWA <- read.csv("data_raw/song_data_2017.csv",  strip.white = TRUE, stringsAsFactors = FALSE, na.strings = c("NA","",'na') )
 
 #Removes observations of other species
 Summer_TOWA <- Summer_2017_data %>% 
-  filter(Species=="TOWA")
+  filter(ï..Species=="TOWA")
 
 #changes from bird code to scientific name
-Summer_TOWA$Species <- gsub('TOWA' , 'Setophaga townsendi', Summer_TOWA$Species)
+Summer_TOWA$ï..Species <- gsub('TOWA' , 'Setophaga townsendi', Summer_TOWA$ï..Species)
 
 #renames the columns on the excel sheet so they match the names on the google sheet 
 #new name first
 Summer_rename <- Summer_TOWA %>% 
   rename(Tree.Size.Class = Tree.class.Size, Elevation..m. = Elevationv..m.,
-         Background.species = Background.spp, Stimulus = Natural.or.Playback. )
+         Background.species = Background.spp, Stimulus = Natural.or.Playback., Banded = Banded., 
+         X..Canopy.Cover= X..Canopy.cover, Species = ï..Species)
 
-Summer_col_names <- names(Summer_rename)
-sapply(Summer_col_names, typeof) 
+View(Summer_rename)
 
-#doesn't work because incompatible types, joining factors with different levels and coercing to character vector
 Song_data_2017 <- full_join(GS_rename, Summer_rename)
+
+#Removes * character from the GPS coordinates and replaces with a space
+Song_data_2017$GPS.coordinate.N <- chartr('*',' ', Song_data_2017$GPS.coordinate.N)
+Song_data_2017$GPS.coordinate.W <- chartr('*',' ', Song_data_2017$GPS.coordinate.W)
+
+View(Song_data_2017)
+
+#writes CSV
+write_csv(Song_data_2017, path = "data/song_data_2017.csv")
+
+#alternate way with write.csv()
+# write.csv(Song_data_2017, file = "c:\\Users\\Madelyn Ore\\Documents\\UBC Irwin\\Song Analysis\\TOWA\\Song-Analysis\\data\\song_data.csv")
+
+# #outputs what type of data each column is being read as, and summary information about it
+# summary(GS_rename)
+# summary(Summer_rename)
