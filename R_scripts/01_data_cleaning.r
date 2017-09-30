@@ -5,9 +5,7 @@ require(readxl)
 require(stringr)
 require(tidyverse)
 
-library(readxl)
-library(tidyverse)
-library(stringr)
+
 
 
 # Macauley Library --------------------------------------------------------
@@ -224,3 +222,14 @@ write_csv(Song_data_2017, path = "data/song_data_2017.csv")
 # #outputs what type of data each column is being read as, and summary information about it
 # summary(GS_rename)
 # summary(Summer_rename)
+
+
+song_data <- read.csv("data/song_data_2017.csv", strip.white = TRUE)
+View(song_data)
+
+#Removes recordings that are not usable
+song_data <- song_data %>% 
+  filter(Usable != "no")
+
+write_csv(song_data, path = "data/song_data_2017.csv")
+

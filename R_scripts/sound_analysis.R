@@ -41,3 +41,11 @@ ad2 <- autodetec(threshold = 90, env = "abs", ssmooth = 300, power = 1, redo = T
 #check this folder!!
 getwd()
 View(tempdir())
+
+
+
+# Trial Run ---------------------------------------------------------------
+
+trials <- round(runif(5, min = 1, max= 195),0)
+print(trials)
+
