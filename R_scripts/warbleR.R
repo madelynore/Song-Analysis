@@ -2,6 +2,7 @@
 #test workflow warbleR
 #Madelyn Ore
 
+library(tidyverse)
 library(warbleR)
 
 
@@ -109,5 +110,132 @@ autodetec(flist = SRF08M03_full, threshold = 8, envt = "abs", ssmooth = 900, wl 
 
 read
 
+
+
+# Trials ------------------------------------------------------------------
+
+SRF27M05 <- read.table("data_raw/SRF27M05_2.WAV.Table.1.selections.txt", sep = "\t", header = TRUE)
+
+#removes wave-form data, and unneccasry columns
+SRF27M05 <- SRF27M05[SRF27M05$View != "Waveform 1", c("Selection", "Begin.Time..s.","End.Time..s.")]
+
+#adds sound files name
+SRF27M05 <- SRF27M05 %>% 
+  add_column(sound.files = rep(c("SRF27M05_wav"), nrow(SRF27M05)), .before = 1)
+
+#organizes files in proper warbler format
+SRF27M05 <- SRF27M05 %>% 
+  rename(selec = Selection, start = Begin.Time..s., end = End.Time..s.)
+
+
+
+#set working directory to folder with song in it
+setwd(dir = "sound/SRF27M02 test/")
+#check that you did that
+getwd()
+
+#check that files in wd are readable
+checkwavs()
+
+#get file names for songs you want to analyze
+SRF27M05_wav <- list.files(pattern = "wav$")
+
+#create a spectrogram image of your sound file, flist = subset of songs you want to analyze,
+#       ovlp = overlap of sound windows, it = file type to save image as, flim = c(lower freq bound, upper freq bound)
+#       sxrow = seconds per row, rows = #rows
+lspec(flist = SRF27M05_wav, ovlp = 50, it = "tiff", flim = c(2,8), sxrow = 10, rows = 15)
+
+#change sound.file name to reflect actual file name, 
+######### REARRANGE THIS SO IT GETS ACTUAL FILE NAME WHEN CREATING COLUMN#####
+SRF27M05$sound.files <- rep(c(SRF27M05_wav), nrow(SRF27M05))
+
+#detects margins to measure noise around signals
+snrspecs(SRF27M05, flim = c(2,10), snrmar = 1, mar = 0.1, it = "tiff" )
+
+#calculate SNR
+SNR <- sig2noise(SRF27M05, mar = 0.1)
+
+#test how well frequencies will be detected
+trackfreqs(SRF27M05, flim = c(2, 10), bp = c(3.2, 7), it = "tiff", threshold = 50, wl = 700)
+
+#batch process acoustic measurements
+SRF27M05_measure <- specan(SRF27M05, bp = c(2,10), threshold = 15)
+
+#pick three songs to analyze
+Analysis_potential <- integer()
+for (i in 1:nrow(SNR)){
+  if (SNR$SNR[i] >= 2){
+    Analysis_potential <- c(Analysis_potential, SNR$selec[i])
+  }
+}
+
+analyze_this <- round(runif(3, min = min(Analysis_potential), max = max(Analysis_potential)),0)
+print(analyze_this)
+
+
+# SRE20M04 ----------------------------------------------------------------
+
+setwd(choose.dir())
+
+SRE20M04 <-read.table("data_raw/SRE20M04.WAV.Table.1.selections.txt", sep = "\t", header = TRUE)
+
+#removes wave-form data, and unneccasry columns
+SRE20M04 <- SRE20M04[SRE20M04$View != "Waveform 1", c("Selection", "Begin.Time..s.","End.Time..s.")]
+
+#adds sound files name
+SRE20M04 <- SRE20M04 %>% 
+  add_column(sound.files = rep(c("SRE20M04.wav"), nrow(SRE20M04)), .before = 1)
+
+#organizes files in proper warbler format
+SRE20M04 <- SRE20M04 %>% 
+  rename(selec = Selection, start = Begin.Time..s., end = End.Time..s.)
+
+#check that files in wd are readable
+checkwavs(path = 'sound/SRE20M05/')
+
+#get file names for songs you want to analyze
+SRE20M04_wav <- list.files(pattern = "wav$", path = (choose.dir()))
+
+SRE20M04$sound.files <- rep(c(SRE20M04_wav), nrow(SRE20M04))
+
+
+#detects margins to measure noise around signals
+snrspecs(SRE20M04, flim = c(2,10), snrmar = 0.1, mar = 1, it = "tiff", inner.mar = c(6,5,5,3) )
+
+#calculate SNR
+SNR <- sig2noise(SRE20M04, mar = 0.1)
+
+#test how well frequencies will be detected
+trackfreqs(SRE20M04, flim = c(2, 10), bp = c(3, 8), it = "tiff", threshold = 20, wl = 700)
+
+
+
+# Create spec printouts of songs ------------------------------------------
+
+#set working directory to folder with song in it
+setwd(choose.dir())
+#check that you did that
+parent_folder <- "C:/Users/Madelyn Ore/Documents/UBC Irwin/Song Analysis/TOWA/Field Summer 2017 Data/Filtered_sound"
+getwd()
+
+file_names <- list.dirs()
+
+file_names <- file_names[17:27]
+
+for (i in 1:length(file_names)){
+  setwd(file_names[i])
+  #check that files in wd are readable
+  checkwavs()
+
+  #get file names for songs you want to analyze
+  songs <- list.files(pattern = "wav$")
+
+  #create a spectrogram image of your sound file, flist = subset of songs you want to analyze,
+  #       ovlp = overlap of sound windows, it = file type to save image as, flim = c(lower freq bound, upper freq bound)
+  #       sxrow = seconds per row, rows = #rows
+  lspec(flist = songs, ovlp = 50, it = "tiff", flim = c(2,8), sxrow = 15, rows = 6, redo = FALSE)
+  
+  setwd(parent_folder)
+}
 
 

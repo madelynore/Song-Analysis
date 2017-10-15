@@ -214,7 +214,7 @@ Song_data_2017$GPS.coordinate.W <- chartr('*',' ', Song_data_2017$GPS.coordinate
 View(Song_data_2017)
 
 #writes CSV
-write_csv(Song_data_2017, path = "data/song_data_2017.csv")
+write_csv(Song_data_2017, path = "data/song_data_backup.csv")
 
 #alternate way with write.csv()
 # write.csv(Song_data_2017, file = "c:\\Users\\Madelyn Ore\\Documents\\UBC Irwin\\Song Analysis\\TOWA\\Song-Analysis\\data\\song_data.csv")
@@ -231,5 +231,9 @@ View(song_data)
 song_data <- song_data %>% 
   filter(Usable != "no")
 
-write_csv(song_data, path = "data/song_data_2017.csv")
+
+
+write.csv(song_data, "data/song_data_2017_v2.csv")
+
+
 
