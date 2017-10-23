@@ -74,4 +74,5 @@ rand_songs <- function(n, output){
 write.csv(TOWA, file = "data/song_data_2017_v5.csv")
 
 
-sample(4, size=3)
+sample(14, size=3)
+
