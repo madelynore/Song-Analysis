@@ -238,4 +238,36 @@ for (i in 1:length(file_names)){
   setwd(parent_folder)
 }
 
+## for ML and XC
+#set working directory to folder with song in it
+setwd(choose.dir())
+#check that you did that
+getwd()
 
+#check that files in wd are readable
+checkwavs()
+
+#get file names for songs you want to analyze
+songs <- list.files(pattern = "wav$")
+
+lspec(flist = songs, ovlp = 50, it = "tiff", flim = c(2,8), sxrow = 15, rows = 6, redo = FALSE)
+
+
+
+# Create pdfs for each song by selection ----------------------------------
+
+#set working directory to folder with song in it
+setwd(choose.dir())
+#check that you did that
+getwd()
+
+SRsel <- read.csv(file = "SRF08M03_selecs.csv", header = TRUE)
+
+#create individual spectrograms from selection table
+specreator(SRsel, wl = 512, flim= c(3,9), it = "tiff", res =150, osci = TRUE, ovlp = 90)
+
+#work flow:
+# compile all selection tables into one spreadsheet
+# create specialized data sheet to go through all song files
+# get spec printouts of all songs
+# create a catalog of all songs

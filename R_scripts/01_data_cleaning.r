@@ -237,3 +237,55 @@ write.csv(song_data, "data/song_data_2017_v2.csv")
 
 
 
+# Blood Data-- edit for banding database ----------------------------------
+
+bl <- read.csv(file = "data/old versions/banding_data.csv", strip.white = TRUE, na.strings = "")
+
+#remove unneccesary columns--> song ID and habitat
+bl <- bl[,-c(3,10)]
+
+#replace * and ' ' with .
+bl$GPS.coordinate.N <- sub("[.]", "", bl$GPS.coordinate.N)
+bl$GPS.coordinate.W <- sub("[.]", "", bl$GPS.coordinate.W)
+
+bl$GPS.coordinate.N <- chartr("*", ".", bl$GPS.coordinate.N)
+bl$GPS.coordinate.N <- chartr(" ", ".", bl$GPS.coordinate.N)
+bl$GPS.coordinate.W <- chartr("*", ".", bl$GPS.coordinate.W)
+bl$GPS.coordinate.W <- chartr(" ", ".", bl$GPS.coordinate.W)
+
+#fill in column
+bl$Feather <- rep("N", length= nrow(bl))
+
+for (i in 1:length(bl$Sex)){
+  if(bl$Sex[i] == 'Male'){
+    bl$Sex[i] = 'M'
+  }
+  if(bl$Sex[i] == "Female"){
+    bl$Sex[i] = 'F'
+  }
+  if(bl$Sex[i] == "UNKNOWN"){
+    bl$Sex[i] = 'U'
+  }
+}
+
+#change date format
+bl <- bl %>% 
+  separate(col = date..MDY., into = c('Month', 'Day', 'Year'), sep = '/')
+
+#organize columns
+bl <- bl[,c("Record..", "Day", "Month", "Year", 'Locality', 'GPS.coordinate.N', 'GPS.coordinate.W', 'Accuracy',
+            'Elevation..m.', 'Time', 'Species', 'Sex', 'Age', "Breeding.", "CP", "BP", "Bander.Initials",
+            "Band..","Color.band.code", "Blood.Sample.Taken", "Feather", "Photos.Taken", "Fat", "Wing.Chord..mm.",
+            "Tail.Length..mm.", "Tarsus.length..mm.", "Weight", "Plong.Slong", "Exp.Culmen",
+            "Bill.length..mm.", "Beak.depth", "beak.width", "Notes")]
+
+write.csv(bl, file = "data/banding_data_2017.csv")
+
+
+
+
+
+
+
+
+
