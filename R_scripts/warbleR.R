@@ -10,7 +10,7 @@ library(warbleR)
 
 
 #set working directory to folder with song in it
-setwd(dir = "sound/")
+setwd(choose.dir())
 #check that you did that
 getwd()
 
@@ -261,13 +261,28 @@ setwd(choose.dir())
 #check that you did that
 getwd()
 
+#check that files in wd are readable
+checkwavs()
+
+#get file names for songs you want to analyze
+song <- list.files(pattern = "wav$", path = "sound/")
+
 SRsel <- read.csv(file = "SRF08M03_selecs.csv", header = TRUE)
 
 #create individual spectrograms from selection table
 specreator(SRsel, wl = 512, flim= c(3,9), it = "tiff", res =150, osci = TRUE, ovlp = 90)
 
 #work flow:
-# compile all selection tables into one spreadsheet
+# compile all selection tables into one spreadsheet --> done in data cleaning script
 # create specialized data sheet to go through all song files
+TOWAsel <- read.csv(file = "TOWA_warbleR_selec.csv")
+TOWAsel <- TOWAsel[,-1]
 # get spec printouts of all songs
+
+specreator(TOWAsel, wl = 512, flim= c(3,9), it = "tiff", res =150, osci = TRUE, ovlp = 90)
 # create a catalog of all songs
+
+clearsel <- read.csv('data/TOWA_selec_clear.csv')
+clearsel <- clearsel[,-1]
+
+catalog(clearsel, wl = 512, flim= c(3,9), it = "jpeg", res = 150, ovlp = 90, nrow= 3, ncol = 3)

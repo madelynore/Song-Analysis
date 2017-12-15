@@ -284,8 +284,68 @@ write.csv(bl, file = "data/banding_data_2017.csv")
 
 
 
+# Song selection table ----------------------------------------------------
+
+#upload raw data
+sel_tab <- read.csv(file = "data_raw/TOWA_selections.csv", strip.white = TRUE)
+
+#change to c and b to buzzy and clear
+sel_tab$buzzy.or.clear[sel_tab$buzzy.or.clear == 'b'] <- c('buzzy')
+sel_tab$buzzy.or.clear[sel_tab$buzzy.or.clear == 'c'] <- c('clear')
+
+## subsetting the dataframe for the input for warbleR
+sel_c <- subset(sel_tab, View == "Spectrogram 1" & buzzy.or.clear == "clear", select = c(Selection, Begin.Time..s., End.Time..s., Begin.File))
+#renaming col to match warbleR
+selname_c <- sel_c %>% 
+  rename(selec = Selection, start = Begin.Time..s., end = End.Time..s., sound.files = Begin.File)
+
+selord_c <- selname_c[,c("sound.files", 'selec', 'start', 'end')]
+
+write.csv(selord_c, file = "data/TOWA_selec_clear.csv")
 
 
+sel_b <- subset(sel_tab, View == "Spectrogram 1" & buzzy.or.clear == "buzzy", select = c(Selection, Begin.Time..s., End.Time..s., Begin.File))
+#renaming col to match warbleR
+selname_b <- sel_b %>% 
+  rename(selec = Selection, start = Begin.Time..s., end = End.Time..s., sound.files = Begin.File)
+
+selord_b <- selname_b[,c("sound.files", 'selec', 'start', 'end')]
+
+write.csv(selord_b, file = "data/TOWA_selec_buzzy.csv")
 
 
+##clean up song ID column
+
+temp <- data.frame(id = as.character(sel_tab$Song.ID.1), 'source' = sel_tab$Source, 
+                   stringsAsFactors = FALSE)
+
+codes <- str_sub(sel_tab$Song.ID.1[sel_tab$Source == "Field Season"], 1, 8)
+
+
+for (i in 1:nrow(temp)){
+  if (temp$source[i] == "Field Season"){
+    temp$id[i] <- codes[i]
+  }
+}
+
+sel_tab$Song.ID.1 <- temp$id
+
+write.csv(sel_tab, file = "data/TOWA_song_selection.csv")
+
+##move buzzy and clear songs into separate folders
+img <- list.files(pattern = 'tiff$')
+
+img_ind <- sel_tab[sel_tab$View == "Spectrogram 1", c("buzzy.or.clear")]
+
+for (i in 1:length(img)){
+  if (img_ind[i] == "buzzy"){
+    file.copy(img[i], to = "Buzzy songs/")
+  } else if (img_ind[i] == "clear"){
+    file.copy(img[i], to = "Clear songs/")
+  }
+}
+
+if (sel_tab$buzzy.or.clear[1] == "clear"){
+  file.copy(img[1], to = "Clear songs/")
+}
 
