@@ -256,6 +256,7 @@ bl$GPS.coordinate.W <- chartr(" ", ".", bl$GPS.coordinate.W)
 #fill in column
 bl$Feather <- rep("N", length= nrow(bl))
 
+#change Male and Female to M and F
 for (i in 1:length(bl$Sex)){
   if(bl$Sex[i] == 'Male'){
     bl$Sex[i] = 'M'
@@ -315,22 +316,14 @@ write.csv(selord_b, file = "data/TOWA_selec_buzzy.csv")
 
 
 ##clean up song ID column
+sel_tab$Song.ID.1 <- as.character(sel_tab$Song.ID.1)
 
-temp <- data.frame(id = as.character(sel_tab$Song.ID.1), 'source' = sel_tab$Source, 
-                   stringsAsFactors = FALSE)
+sel_tab$Song.ID.1[sel_tab$Source == "Field Season"] <- codes
 
-codes <- str_sub(sel_tab$Song.ID.1[sel_tab$Source == "Field Season"], 1, 8)
+sel_tab <- sel_tab %>% 
+  rename(song.analyzed = song.number)
 
-
-for (i in 1:nrow(temp)){
-  if (temp$source[i] == "Field Season"){
-    temp$id[i] <- codes[i]
-  }
-}
-
-sel_tab$Song.ID.1 <- temp$id
-
-write.csv(sel_tab, file = "data/TOWA_song_selection.csv")
+write.csv(sel_tab, file = "data/TOWA_song_measurements.csv")
 
 ##move buzzy and clear songs into separate folders
 img <- list.files(pattern = 'tiff$')
@@ -348,4 +341,31 @@ for (i in 1:length(img)){
 if (sel_tab$buzzy.or.clear[1] == "clear"){
   file.copy(img[1], to = "Clear songs/")
 }
+
+### add locality names to song selection
+info <- read.csv("data/song_data_2017.csv", strip.white = TRUE)
+View(info)
+
+#separate location in to the locality and the area sampled
+info_sep <- info %>% 
+  separate(Locality, into = c("Locality", "Sample Site"), sep = ",", extra = "warn", fill = "left")
+
+#change format of locations to capitalize only the first letter of each word
+for (i in 1:nrow(info_sep)){
+  info_sep$`Sample Site`[i] <- str_to_title(info_sep$`Sample Site`[i])
+}
+
+temp <- data.frame(id = info_sep$Song.ID, loc = info_sep$`Sample Site`)
+
+sel_c$loc <- character(length = nrow(sel_c))
+
+for (i in 1:nrow(sel_c)){
+  
+}
+
+
+
+
+
+
 

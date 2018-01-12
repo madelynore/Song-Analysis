@@ -286,3 +286,5 @@ clearsel <- read.csv('data/TOWA_selec_clear.csv')
 clearsel <- clearsel[,-1]
 
 catalog(clearsel, wl = 512, flim= c(3,9), it = "jpeg", res = 150, ovlp = 90, nrow= 3, ncol = 3)
+
+
