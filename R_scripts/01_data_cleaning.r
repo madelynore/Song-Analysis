@@ -346,7 +346,7 @@ if (sel_tab$buzzy.or.clear[1] == "clear"){
 info <- read.csv("data/song_data_2017.csv", strip.white = TRUE)
 View(info)
 
-#separate location in to the locality and the area sampled
+###separate location in to the locality and the area sampled
 info_sep <- info %>% 
   separate(Locality, into = c("Locality", "Sample Site"), sep = ",", extra = "warn", fill = "left")
 
@@ -354,6 +354,12 @@ info_sep <- info %>%
 for (i in 1:nrow(info_sep)){
   info_sep$`Sample Site`[i] <- str_to_title(info_sep$`Sample Site`[i])
 }
+for (i in 1:nrow(info_sep)){
+  info_sep$Locality[i] <- str_to_title(info_sep$Locality[i])
+}
+
+#writing updates to song_data into a csv
+write.csv(info_sep, file = 'data/song_data_2017.csv')
 
 temp <- data.frame(id = info_sep$Song.ID, loc = info_sep$`Sample Site`)
 
@@ -365,7 +371,24 @@ for (i in 1:nrow(sel_c)){
 
 
 
+####fix the GPS coordinates - 1 remove period in the second half of the coordinate, 2 change space to period
+fieldrec <- read.csv(file = "data/song_data_2017.csv", strip.white = TRUE)
+#3 remove ' at the end of coordinate, 4 make numeric
+fieldrec$GPS.coordinate.N <- sub("\\.", '', fieldrec$GPS.coordinate.N)
+fieldrec$GPS.coordinate.N <- chartr(" ", '.', fieldrec$GPS.coordinate.N)
+fieldrec$GPS.coordinate.N <- sub('\'', '', fieldrec$GPS.coordinate.N)
+fieldrec$GPS.coordinate.N <- as.numeric(fieldrec$GPS.coordinate.N)
 
+fieldrec$GPS.coordinate.W <- sub("\\.", '', fieldrec$GPS.coordinate.W)
+fieldrec$GPS.coordinate.W <- chartr(" ", '.', fieldrec$GPS.coordinate.W)
+fieldrec$GPS.coordinate.W <- sub('\'', '', fieldrec$GPS.coordinate.W)
+fieldrec$GPS.coordinate.W <- as.numeric(fieldrec$GPS.coordinate.W)
+fieldrec$GPS.coordinate.W <- fieldrec$GPS.coordinate.W*-1
+
+#remove the X columns
+fieldrec <- fieldrec[,-c(1,2)]
+
+write.csv(fieldrec, file = "data/song_data_2017.csv", row.names = FALSE)
 
 
 

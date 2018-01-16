@@ -113,19 +113,6 @@ British_Columbia <- get_map(location="british columbia",
                             maptype="roadmap",
                             source= "google")
 
-#fix the GPS coordinates - 1 remove period in the second half of the coordinate, 2 change space to period
-#3 remove ' at the end of coordinate, 4 make numeric
-fieldrec$GPS.coordinate.N <- sub("\\.", '', fieldrec$GPS.coordinate.N)
-fieldrec$GPS.coordinate.N <- chartr(" ", '.', fieldrec$GPS.coordinate.N)
-fieldrec$GPS.coordinate.N <- sub('\'', '', fieldrec$GPS.coordinate.N)
-fieldrec$GPS.coordinate.N <- as.numeric(fieldrec$GPS.coordinate.N)
-
-fieldrec$GPS.coordinate.W <- sub("\\.", '', fieldrec$GPS.coordinate.W)
-fieldrec$GPS.coordinate.W <- chartr(" ", '.', fieldrec$GPS.coordinate.W)
-fieldrec$GPS.coordinate.W <- sub('\'', '', fieldrec$GPS.coordinate.W)
-fieldrec$GPS.coordinate.W <- as.numeric(fieldrec$GPS.coordinate.W)
-fieldrec$GPS.coordinate.W <- fieldrec$GPS.coordinate.W*-1
-
 #plots the field recording data points on the map
 ggmap(British_Columbia) + geom_point(aes(x=GPS.coordinate.W, y= GPS.coordinate.N, 
                                          col = factor(fieldrec$song.category)), data=fieldrec)
