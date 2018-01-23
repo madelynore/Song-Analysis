@@ -98,7 +98,7 @@ for (i in 1:length(A_fieldrec)){
   num <- which(fieldrec$Song.ID == A_fieldrec[i])
   fieldrec$song.category[num] = 'A'
 }
-
+##making a generalized function of the above loop -- NOT FINISHED
 categorize <- fuction(x, category){
   for (i in 1:length(x)){
   num <- which(fieldrec$Song.ID == x[i])
